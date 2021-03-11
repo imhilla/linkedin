@@ -1,7 +1,8 @@
 import React from 'react';
 import './Header.css';
-import { Search } from '@material-ui/icons';
+import { BusinessCenter, Chat, Home, Notifications, Search, SupervisorAccount } from '@material-ui/icons';
 import HeaderOption from './HeaderOption';
+import Laser from '../src/images/laser.jpg'
 
 function Header() {
   return (
@@ -14,8 +15,12 @@ function Header() {
         </div>
       </div>
       <div className="header__right">
-          <HeaderOption title="home" />
-          <HeaderOption title="My Network" />
+        <HeaderOption Icon={Home} title="home" />
+        <HeaderOption Icon={SupervisorAccount} title="My Network" />
+        <HeaderOption Icon={BusinessCenter} title="Jobs" />
+        <HeaderOption Icon={Chat} title="Messaging" />
+        <HeaderOption Icon={Notifications} title="Notifications" />
+        <HeaderOption avatar={Laser}/>
       </div>
     </div>
   )
