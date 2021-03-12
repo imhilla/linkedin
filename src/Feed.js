@@ -4,9 +4,12 @@ import './Feed.css';
 import { db } from './firebase';
 import InputOption from './InputOption';
 import Post from './Post';
-import firebase from 'firebase'
+import firebase from 'firebase';
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
 
 export default function Feed() {
+  const user = useSelector(selectUser)
   const [posts, setPosts] = useState([]);
   const [input, setInput] = useState('')
 
@@ -19,13 +22,15 @@ export default function Feed() {
     ))
   }, [])
 
+  console.log(user)
+
   const sendPost = (e) => {
     e.preventDefault();
     db.collection('posts').add({
-      name: 'Hillary Kiptoo',
-      description: "This is a test",
+      name: user.displayName,
+      description: user.email,
       message: input,
-      photoUrl: '',
+      photoUrl: user.photoUrl || '',
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setInput('')

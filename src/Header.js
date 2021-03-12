@@ -2,9 +2,8 @@ import React from 'react';
 import './Header.css';
 import { BusinessCenter, Chat, Home, Notifications, Search, SupervisorAccount } from '@material-ui/icons';
 import HeaderOption from './HeaderOption';
-import Laser from '../src/images/laser.jpg';
-import { useDispatch } from 'react-redux';
-import { logout } from './features/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from './features/userSlice';
 import { auth } from './firebase';
 
 function Header() {
@@ -30,7 +29,7 @@ function Header() {
         <HeaderOption Icon={BusinessCenter} title="Jobs" />
         <HeaderOption Icon={Chat} title="Messaging" />
         <HeaderOption Icon={Notifications} title="Notifications" />
-        <HeaderOption onClick={logOutOfApp} avatar={Laser} title="Me" />
+        <HeaderOption avatar={true} onClick={logOutOfApp} title="Me" />
       </div>
     </div>
   )

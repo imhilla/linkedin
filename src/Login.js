@@ -19,7 +19,7 @@ function Login() {
     auth.createUserWithEmailAndPassword(email, password).then((userAuth) => {
       userAuth.user.updateProfile({
         displayName: name,
-        photoURL: profilePic
+        photoUrl: profilePic
       }).then(() => {
         dispatch(login({
           email: userAuth.user.email,
