@@ -1,2 +1,0 @@
-# linkedin
-Linkedin clone

@@ -4,7 +4,7 @@ import './Feed.css';
 import { db } from './firebase';
 import InputOption from './InputOption';
 import Post from './Post';
-import firebase from 'firebase';
+import firebase from 'firebase'
 
 export default function Feed() {
   const [posts, setPosts] = useState([]);
