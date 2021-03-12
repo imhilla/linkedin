@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import './App.css';
 import { login, logout, selectUser } from './features/userSlice';
@@ -8,14 +8,15 @@ import Sidebar from './Sidebar';
 import Login from './Login';
 import { auth } from './firebase';
 import { useDispatch } from 'react-redux';
+import Widgets from './Widgets';
 
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch()
 
   useEffect(() => {
-    auth.onAuthStateChanged(userAuth=>{
-      if(userAuth){
+    auth.onAuthStateChanged(userAuth => {
+      if (userAuth) {
         dispatch(login({
           email: userAuth.email,
           uid: userAuth.uid,
@@ -25,9 +26,9 @@ function App() {
       } else {
         dispatch(logout())
       }
-    }) 
+    })
   }, [])
-  
+
   return (
     <div className="app">
       <Header />
@@ -35,7 +36,7 @@ function App() {
         <div className="app__body">
           <Sidebar />
           <Feed />
-          {/* widgets */}
+          <Widgets />
         </div>
       )}
     </div>
