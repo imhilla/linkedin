@@ -28,7 +28,7 @@ export default function Feed() {
   const sendPost = (e) => {
     e.preventDefault();
     db.collection('posts').add({
-      name: user.displayName,
+      name: user.displayName ,
       description: user.email,
       message: input,
       photoUrl: '',
